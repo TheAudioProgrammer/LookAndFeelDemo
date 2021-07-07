@@ -10,6 +10,30 @@
 
 #include "StyleSheet.h"
 
+CustomLNF::CustomLNF()
+{
+    auto robotFont = juce::Typeface::createSystemTypefaceFor (Resources::Robot_Font_otf, Resources::Robot_Font_otfSize);
+    setDefaultSansSerifTypeface (robotFont);
+}
+
+juce::Slider::SliderLayout CustomLNF::getSliderLayout (juce::Slider& slider)
+{
+    juce::Slider::SliderLayout layout;
+    layout.sliderBounds = juce::Rectangle<int> (0, 0, 200, 200);
+    layout.textBoxBounds = juce::Rectangle<int> (0, 135, 80, 40);
+    return layout;
+}
+
+juce::Label* CustomLNF::createSliderTextBox (juce::Slider& slider)
+{
+    juce::Label* l = juce::LookAndFeel_V4::createSliderTextBox (slider);
+    l->setColour (juce::Label::ColourIds::outlineColourId, juce::Colours::transparentBlack);
+    l->setJustificationType (juce::Justification::centredLeft);
+    l->setFont (30.0f);
+    return l;
+   
+}
+
 void CustomLNF::drawRotarySlider (juce::Graphics& g, int x, int y, int width, int height, float sliderPos,
                                        const float rotaryStartAngle, const float rotaryEndAngle, juce::Slider& slider)
 {

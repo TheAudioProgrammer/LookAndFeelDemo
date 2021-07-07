@@ -11,6 +11,11 @@
       <FILE id="RMcMYA" name="StyleSheet.cpp" compile="1" resource="0" file="Source/StyleSheet.cpp"/>
       <FILE id="a2owV7" name="StyleSheet.h" compile="0" resource="0" file="Source/StyleSheet.h"/>
     </GROUP>
+    <GROUP id="{770F7738-EDFE-8CDA-E265-CDC0225A4BD2}" name="Resources">
+      <FILE id="k4llcW" name="Resources.cpp" compile="1" resource="0" file="Resources/Resources.cpp"/>
+      <FILE id="Yr7NAn" name="Resources.h" compile="0" resource="0" file="Resources/Resources.h"/>
+      <FILE id="Uw4TSo" name="Robot_Font.otf" compile="0" resource="1" file="Resources/Robot_Font.otf"/>
+    </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_HOST_CROSS_PLATFORM_UID="1"/>
   <EXPORTFORMATS>

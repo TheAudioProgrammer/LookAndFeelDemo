@@ -4,24 +4,13 @@
 MainComponent::MainComponent()
 {
     juce::LookAndFeel::setDefaultLookAndFeel (&myCustomLNF);
+    myDial.setRange (0.0f, 100.0f, 0.1f);
+    myDial.setValue (0.0f);
+    addAndMakeVisible (myDial);
     
-    auto rotaryParameters = mySlider.getRotaryParameters();
-    //rotaryParameters.startAngleRadians = juce::MathConstants<float>::pi / 2.0f;
-    //rotaryParameters.startAngleRadians = 0.0f;
-//    rotaryParameters.startAngleRadians = juce::MathConstants<float>::pi * 1.2f;
-//    rotaryParameters.endAngleRadians = juce::MathConstants<float>::pi * 2.8f;
-    rotaryParameters.startAngleRadians = juce::MathConstants<float>::pi * 1.5f;
-    rotaryParameters.endAngleRadians = juce::MathConstants<float>::pi * 3.0f;
-    rotaryParameters.stopAtEnd = true;
-    
-    mySlider.setRotaryParameters (rotaryParameters);
-    mySlider.setColour (juce::Slider::ColourIds::rotarySliderFillColourId, juce::Colours::orange);
-
-    mySlider.setSliderStyle (juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
-    mySlider.setTextBoxStyle (juce::Slider::NoTextBox, true, 0, 0);
-    mySlider.setRange (0.0f, 100.0f, 0.1f);
-    mySlider.setValue (0.0f);
-    addAndMakeVisible (mySlider);
+    parameterTitle.setFont (30.0f);
+    parameterTitle.setJustificationType (juce::Justification::centred);
+    addAndMakeVisible (parameterTitle);
     
     setSize (400, 400);
 }
@@ -39,5 +28,6 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-    mySlider.setBounds (getWidth() / 2 - 100, getHeight() / 2 - 100, 200, 200);
+    myDial.setBounds (getWidth() / 2 - 100, getHeight() / 2 - 100, 200, 200);
+    parameterTitle.setBounds (myDial.getX(), myDial.getY() - 50, myDial.getWidth(), 40);
 }
